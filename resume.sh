@@ -2,7 +2,7 @@
 # Resume, version 1.0
 # Copyright (c) Michael Armijo, 2015.
 # This work is licensed under the Creative Commons Attribution-NoDerivs 4.0 International License. See http://creativecommons.org/licenses/by-nd/4.0/ for more details.
-# Revision 090215-01
+# Revision 110915-01
 
 # Please note that this isn't pseudo-code! This is an actual GNU BASH shell script. Try it out!
 # The script is split into four different parts: Variables, Small Functions, Main Functions, and the Runtime. Everything is documented to help you understand what's going on.
@@ -76,17 +76,22 @@ SUMMARY_CONTENTS="Energetic, quick learner and problem solver with a strong leve
 # Work Experience text strings
 WORK_EXPERIENCE_TITLE="WORK EXPERIENCE"
 WORK_EXPERIENCE_SELECT="Select an option to view its contents."
-WORK_EXPERIENCE_OPTION1="IT Help Desk"
-WORK_EXPERIENCE_OPTION2="Data Entry"
-WORK_EXPERIENCE_OPTION3="Go Back"
-JOB1_TITLE="IT Help Desk/PracticeMax"
-JOB2_TITLE="Data Entry/Cornea Consultants of Arizona (Internship)"
-JOB1_CONTENTS="• Provide internal technical support to employees both in-person and over the phone within a limited amount of time.
+WORK_EXPERIENCE_OPTION1="Service Desk Associate"
+WORK_EXPERIENCE_OPTION2="IT Help Desk"
+WORK_EXPERIENCE_OPTION3="Data Entry"
+WORK_EXPERIENCE_OPTION4="Go Back"
+JOB1_TITLE="Service Desk Associate/Cognizant (Current)"
+JOB2_TITLE="IT Help Desk/PracticeMax"
+JOB3_TITLE="Data Entry/Cornea Consultants of Arizona (Internship)"
+JOB1_CONTENTS="• Provide technical support and password resets to customers over the phone/remotely in a 24x7 environment in compliance with the company SLA.
+• Support services include mainframe (AS/400) password resets, troubleshooting client applications (Microsoft applications as well as proprietary).
+• Assign and escalate tickets using ServiceNow and HP Service Manager ticketing systems."
+JOB2_CONTENTS="• Provide internal technical support to employees both in-person and over the phone within a limited amount of time.
 • Manage support tickets through ZenDesk, escalate support tickets to higher tiers if necessary.
 • Manage several servers and workstations running a combination of Windows XP, 7, 8, 8.1, and Server 2008 + Server 2008 R2. Make sure they are up-to-date and functioning properly.
 • Resolve any hardware issues locally in a timely manner. Set up new hardware for new employees. Configure and manage software for employee usage.
 • Manage users and add/disable old users on Windows domains through Active Directory and all proprietary services used internally."
-JOB2_CONTENTS="• Sort and pull medical records as requested.
+JOB3_CONTENTS="• Sort and pull medical records as requested.
 • Convert documents into digital formats (most commonly Adobe PDF) by scanning them."
 
 # Education text strings
@@ -98,7 +103,7 @@ EDUCATION_CONTENTS="• English 101 & 102
 
 # Technical Skills text strings
 TECHNICAL_SKILLS_TITLE="TECHNICAL SKILLS"
-TECHNICAL_SKILLS_CONTENTS="Familiar with Windows 95 to Windows 10, Mac OS X, as well as distributions of GNU/Linux used in professional environments. Able to easily use the latest versions of iOS and Android. Capable of using both Microsoft Office and LibreOffice. Able to manage Active Directory and Exchange Server."
+TECHNICAL_SKILLS_CONTENTS="Familiar with Windows 95 to Windows 10, Mac OS X, as well as distributions of GNU/Linux used in professional environments. Able to easily use the latest versions of iOS and Android. Capable of using both Microsoft Office and LibreOffice. Able to manage Active Directory and Exchange Server. Experience with AS/400 mainframes."
 
 # Interested text strings
 INTERESTED_TITLE="INTERESTED?"
@@ -240,7 +245,7 @@ work_experience ()
 	newPage
 	disp "$WORK_EXPERIENCE_TITLE"
 	disp "$WORK_EXPERIENCE_SELECT"
-	options=("$WORK_EXPERIENCE_OPTION1" "$WORK_EXPERIENCE_OPTION2" "$WORK_EXPERIENCE_OPTION3")
+	options=("$WORK_EXPERIENCE_OPTION1" "$WORK_EXPERIENCE_OPTION2" "$WORK_EXPERIENCE_OPTION3" "$WORK_EXPERIENCE_OPTION4")
 	select opt in "${options[@]}"
 	do
   		case $opt in
@@ -257,6 +262,12 @@ work_experience ()
 				goback
 				;;
 			"$WORK_EXPERIENCE_OPTION3")
+				newPage
+				disp "$JOB3_TITLE\n"
+				disp "$JOB3_CONTENTS\n"
+				goback
+				;;
+			"$WORK_EXPERIENCE_OPTION4")
 				mainMenu
 				;;
 			*)
